@@ -51,21 +51,21 @@ function ProductDetailPage() {
       <Header searchTerm={filters.searchTerm} onSearch={updateSearchTerm} />
 
       <main className={`container ${styles.main}`}>
-        <button
-          aria-label="Go back to products"
-          className={styles.backButton}
-          onClick={handleBack}
-          type="button"
-        >
-          Back to products
-        </button>
-
         {detailError ? (
           <ErrorMessage message={detailError} onRetry={() => fetchDetail(id)} />
         ) : detailLoading || !selectedProduct ? (
           <LoadingSpinner label="Loading product details" />
         ) : (
           <article className={styles.card}>
+            <button
+              aria-label="Go back to products"
+              className={styles.backButton}
+              onClick={handleBack}
+              type="button"
+            >
+              ← Back
+            </button>
+
             <section className={styles.hero}>
               <div className={styles.imagePanel}>
                 <img
@@ -87,8 +87,6 @@ function ProductDetailPage() {
                 <div className={styles.metaBlock}>
                   <p><strong>Brand:</strong> {selectedProduct.brand || 'N/A'}</p>
                   <p><strong>Category:</strong> {selectedProduct.category}</p>
-                  <p><strong>Stock:</strong> {selectedProduct.stock}</p>
-                  <p><strong>Discount:</strong> {selectedProduct.discountPercentage}%</p>
                 </div>
 
                 <section className={styles.infoSection}>
@@ -102,8 +100,11 @@ function ProductDetailPage() {
                   <section className={styles.infoSection}>
                     <h2>Reviews</h2>
                     <div className={styles.reviewList}>
-                      {selectedProduct.reviews.slice(0, 2).map((review) => (
-                        <article className={styles.reviewCard} key={`${review.reviewerEmail}-${review.date}`}>
+                      {selectedProduct.reviews.map((review) => (
+                        <article
+                          className={styles.reviewCard}
+                          key={`${review.reviewerEmail}-${review.date}`}
+                        >
                           <div className={styles.reviewHeader}>
                             <h3>{review.reviewerName}</h3>
                             <Rating rating={review.rating} />

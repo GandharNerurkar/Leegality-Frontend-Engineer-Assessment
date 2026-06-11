@@ -191,10 +191,6 @@ function ProductListPage() {
             ) : filteredProducts.length ? (
               <>
                 <div className={styles.desktopSummary}>
-                  <p className={styles.resultCount}>
-                    Showing {paginatedProducts.length} of {filteredProducts.length}{' '}
-                    products
-                  </p>
                 </div>
 
                 <div className={styles.grid}>
@@ -203,11 +199,13 @@ function ProductListPage() {
                   ))}
                 </div>
 
-                <Pagination
-                  currentPage={currentPage}
-                  onPageChange={changePage}
-                  totalPages={totalPages}
-                />
+                {filteredProducts.length > 8 ? (
+                  <Pagination
+                    currentPage={currentPage}
+                    onPageChange={changePage}
+                    totalPages={totalPages}
+                  />
+                ) : null}
               </>
             ) : (
               <EmptyState

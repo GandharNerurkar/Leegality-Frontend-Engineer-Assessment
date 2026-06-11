@@ -36,7 +36,6 @@ function ProductCard({ product }) {
           <p className={styles.price}>${product.price.toFixed(2)}</p>
           <Rating rating={product.rating} />
         </div>
-        <p className={styles.brand}>{product.brand || product.category}</p>
       </div>
     </Link>
   );

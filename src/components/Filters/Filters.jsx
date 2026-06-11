@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useMemo, useState } from 'react';
 import styles from './Filters.module.css';
 
 function Filters({
@@ -20,6 +20,18 @@ function Filters({
   const categoryInputName = isMobileDrawer
     ? 'category-mobile'
     : 'category-desktop';
+  const [categorySearch, setCategorySearch] = useState('');
+  const visibleCategories = useMemo(() => {
+    const normalizedQuery = categorySearch.trim().toLowerCase();
+
+    if (!normalizedQuery) {
+      return categories;
+    }
+
+    return categories.filter((category) =>
+      category.name.toLowerCase().includes(normalizedQuery),
+    );
+  }, [categories, categorySearch]);
 
   return (
     <>
@@ -34,13 +46,17 @@ function Filters({
 
       <section className={wrapperClassName}>
         <div className={styles.header}>
-          <div>
-            <h2>Filters</h2>
-          </div>
+          <label className={styles.searchBar}>
+            <span className="visually-hidden">Search categories</span>
+            <input
+              aria-label="Search categories"
+              onChange={(event) => setCategorySearch(event.target.value)}
+              placeholder="Search..."
+              type="search"
+              value={categorySearch}
+            />
+          </label>
           <div className={styles.headerActions}>
-            <button className={styles.resetButton} onClick={onReset} type="button">
-              Reset
-            </button>
             {isMobileDrawer ? (
               <button
                 aria-label="Close filters panel"
@@ -66,7 +82,7 @@ function Filters({
               />
               <span>All categories</span>
             </label>
-            {categories.map((category) => (
+            {visibleCategories.map((category) => (
               <label className={styles.option} key={category.slug}>
                 <input
                   checked={filters.selectedCategory === category.slug}

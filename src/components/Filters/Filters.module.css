@@ -1,8 +1,8 @@
 .panel,
 .drawer {
   display: grid;
-  gap: 1.25rem;
-  padding: 1rem;
+  gap: 1rem;
+  padding: 0.75rem 1rem 1rem;
   border-right: 1px solid #eaeded;
   background: #ffffff;
   box-shadow: none;
@@ -11,22 +11,33 @@
 .header {
   display: flex;
   gap: 1rem;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
 }
 
-.header h2,
 .group h3 {
   margin: 0;
 }
 
-.header h2 {
-  font-size: 1.4rem;
+.searchBar {
+  flex: 1;
+}
+
+.searchBar input {
+  width: 100%;
+  padding: 0.62rem 0.72rem;
+  border: 1px solid #d5d9d9;
+  border-radius: 6px;
+  background: #fff;
 }
 
 .headerActions {
   display: flex;
   gap: 0.5rem;
+}
+
+.headerActions:empty {
+  display: none;
 }
 
 .resetButton,
@@ -47,6 +58,11 @@
   border-top: 1px solid #f1f3f3;
 }
 
+.group:first-of-type {
+  padding-top: 0;
+  border-top: 0;
+}
+
 .brandList {
   display: grid;
   gap: 0.7rem;
@@ -58,7 +74,7 @@
 .categoryList {
   display: grid;
   gap: 0.7rem;
-  max-height: 220px;
+  height: 220px;
   overflow: auto;
   padding-right: 0.35rem;
 }
