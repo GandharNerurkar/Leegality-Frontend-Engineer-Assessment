@@ -1,0 +1,28 @@
+.card {
+  display: grid;
+  gap: 0.85rem;
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  background: var(--surface-strong);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+}
+
+.card h2,
+.card p {
+  margin: 0;
+}
+
+.card p {
+  color: var(--muted);
+}
+
+.button {
+  justify-self: center;
+  padding: 0.85rem 1.35rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #172033;
+  font-weight: 700;
+}

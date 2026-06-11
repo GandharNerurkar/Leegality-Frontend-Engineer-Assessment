@@ -1,0 +1,29 @@
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stars {
+  display: inline-flex;
+  gap: 0.1rem;
+}
+
+.star,
+.activeStar {
+  font-size: 0.95rem;
+}
+
+.star {
+  color: rgba(23, 32, 51, 0.2);
+}
+
+.activeStar {
+  color: #f6ad22;
+}
+
+.value {
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+}

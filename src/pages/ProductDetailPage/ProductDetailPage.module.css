@@ -1,0 +1,175 @@
+.page {
+  min-height: 100vh;
+}
+
+.main {
+  padding: 1.5rem 0 3rem;
+}
+
+.backButton {
+  margin-bottom: 1rem;
+  padding: 0.8rem 1.1rem;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow-soft);
+  font-weight: 700;
+}
+
+.card {
+  display: grid;
+  gap: 2rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(300px, 480px) minmax(0, 1fr);
+  gap: 2rem;
+}
+
+.imagePanel {
+  display: grid;
+  place-items: center;
+  min-height: 460px;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, #f7f9fd 0%, #eef4fb 100%);
+}
+
+.primaryImage {
+  width: 100%;
+  height: 360px;
+  object-fit: contain;
+}
+
+.content {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+}
+
+.category,
+.title,
+.price,
+.description {
+  margin: 0;
+}
+
+.category {
+  color: var(--primary-dark);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: clamp(1.85rem, 2vw, 2.75rem);
+  line-height: 1.1;
+}
+
+.ratingRow {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.stock {
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(31, 157, 85, 0.12);
+  color: var(--success);
+  font-weight: 700;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.description {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.metaGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+}
+
+.metaGrid div {
+  padding: 1rem;
+  border-radius: 1rem;
+  background: var(--surface-alt);
+}
+
+.metaGrid dt {
+  margin-bottom: 0.35rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.metaGrid dd {
+  margin: 0;
+  font-weight: 700;
+}
+
+.gallerySection {
+  display: grid;
+  gap: 1rem;
+}
+
+.galleryTitle {
+  margin: 0;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.galleryImage {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .main {
+    padding-top: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .imagePanel {
+    min-height: 300px;
+  }
+
+  .primaryImage {
+    height: 260px;
+  }
+
+  .metaGrid {
+    grid-template-columns: 1fr;
+  }
+}
