@@ -100,23 +100,21 @@ function Filters({
           <h3>Price range</h3>
           <div className={styles.priceInputs}>
             <label>
-              <span>Min</span>
               <input
                 aria-label="Minimum price"
                 min="0"
                 onChange={(event) => onMinPriceChange(event.target.value)}
-                placeholder="0"
+                placeholder="Min"
                 type="number"
                 value={filters.minPrice}
               />
             </label>
             <label>
-              <span>Max</span>
               <input
                 aria-label="Maximum price"
                 min="0"
                 onChange={(event) => onMaxPriceChange(event.target.value)}
-                placeholder="500"
+                placeholder="Max"
                 type="number"
                 value={filters.maxPrice}
               />

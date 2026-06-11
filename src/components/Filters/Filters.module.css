@@ -98,13 +98,7 @@
 }
 
 .priceInputs label {
-  display: grid;
-  gap: 0.45rem;
-}
-
-.priceInputs span {
-  color: #565959;
-  font-size: 0.84rem;
+  display: block;
 }
 
 .priceInputs input {
