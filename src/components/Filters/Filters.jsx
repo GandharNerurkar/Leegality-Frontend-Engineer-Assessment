@@ -17,6 +17,9 @@ function Filters({
   const wrapperClassName = isMobileDrawer
     ? `${styles.drawer} ${isDrawerOpen ? styles.drawerOpen : ''}`
     : styles.panel;
+  const categoryInputName = isMobileDrawer
+    ? 'category-mobile'
+    : 'category-desktop';
 
   return (
     <>
@@ -32,7 +35,6 @@ function Filters({
       <section className={wrapperClassName}>
         <div className={styles.header}>
           <div>
-            <p className={styles.eyebrow}>Narrow results</p>
             <h2>Filters</h2>
           </div>
           <div className={styles.headerActions}>
@@ -54,39 +56,25 @@ function Filters({
 
         <div className={styles.group}>
           <h3>Category</h3>
-          <label className={styles.option}>
-            <input
-              checked={filters.selectedCategory === ''}
-              name="category"
-              onChange={() => onCategoryChange('')}
-              type="radio"
-            />
-            <span>All categories</span>
-          </label>
-          {categories.map((category) => (
-            <label className={styles.option} key={category.slug}>
+          <div className={styles.categoryList}>
+            <label className={styles.option}>
               <input
-                checked={filters.selectedCategory === category.slug}
-                name="category"
-                onChange={() => onCategoryChange(category.slug)}
+                checked={filters.selectedCategory === ''}
+                name={categoryInputName}
+                onChange={() => onCategoryChange('')}
                 type="radio"
               />
-              <span>{category.name}</span>
+              <span>All categories</span>
             </label>
-          ))}
-        </div>
-
-        <div className={styles.group}>
-          <h3>Brand</h3>
-          <div className={styles.brandList}>
-            {brands.map((brand) => (
-              <label className={styles.option} key={brand}>
+            {categories.map((category) => (
+              <label className={styles.option} key={category.slug}>
                 <input
-                  checked={filters.selectedBrands.includes(brand)}
-                  onChange={() => onBrandToggle(brand)}
-                  type="checkbox"
+                  checked={filters.selectedCategory === category.slug}
+                  name={categoryInputName}
+                  onChange={() => onCategoryChange(category.slug)}
+                  type="radio"
                 />
-                <span>{brand}</span>
+                <span>{category.name}</span>
               </label>
             ))}
           </div>
@@ -117,6 +105,22 @@ function Filters({
                 value={filters.maxPrice}
               />
             </label>
+          </div>
+        </div>
+
+        <div className={styles.group}>
+          <h3>Brand</h3>
+          <div className={styles.brandList}>
+            {brands.map((brand) => (
+              <label className={styles.option} key={brand}>
+                <input
+                  checked={filters.selectedBrands.includes(brand)}
+                  onChange={() => onBrandToggle(brand)}
+                  type="checkbox"
+                />
+                <span>{brand}</span>
+              </label>
+            ))}
           </div>
         </div>
       </section>

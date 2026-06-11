@@ -195,13 +195,6 @@ function ProductListPage() {
                     Showing {paginatedProducts.length} of {filteredProducts.length}{' '}
                     products
                   </p>
-                  <button
-                    className={styles.clearButton}
-                    onClick={resetFilters}
-                    type="button"
-                  >
-                    Clear filters
-                  </button>
                 </div>
 
                 <div className={styles.grid}>

@@ -34,7 +34,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
         onClick={() => onPageChange(currentPage - 1)}
         type="button"
       >
-        Previous
+        ← Previous
       </button>
 
       <div className={styles.pageList}>
@@ -59,7 +59,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
         onClick={() => onPageChange(currentPage + 1)}
         type="button"
       >
-        Next
+        Next →
       </button>
     </nav>
   );

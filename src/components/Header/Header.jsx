@@ -21,13 +21,16 @@ function Header({ searchTerm, onSearch }) {
   return (
     <header className={styles.header}>
       <div className={`container ${styles.inner}`}>
-        <Link aria-label="Go to homepage" className={styles.logo} to="/">
-          <span className={styles.logoBadge}>L</span>
-          <div>
-            <strong>Leegality</strong>
-            <span>Storefront</span>
-          </div>
-        </Link>
+        <div className={styles.leading}>
+          <button aria-label="Open navigation" className={styles.menuButton} type="button">
+            <span />
+            <span />
+            <span />
+          </button>
+          <Link aria-label="Go to homepage" className={styles.logo} to="/">
+            Leegality
+          </Link>
+        </div>
 
         <label className={styles.searchBar}>
           <span className="visually-hidden">Search products</span>
@@ -55,6 +58,14 @@ function Header({ searchTerm, onSearch }) {
             <svg aria-hidden="true" viewBox="0 0 24 24">
               <path
                 d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM6.2 6l.34 2H20l-1.5 6.5H8.1L6.3 4H3V2h4.9l.7 4Z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+          <button aria-label="Orders" className={styles.iconButton} type="button">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path
+                d="M12 2a8 8 0 1 0 8 8h-2a6 6 0 1 1-1.76-4.24L13 9h9V0l-2.83 2.83A9.97 9.97 0 0 0 12 2Z"
                 fill="currentColor"
               />
             </svg>

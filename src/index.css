@@ -69,7 +69,7 @@ img {
 }
 
 .container {
-  width: min(calc(100% - 2rem), var(--max-width));
+  width: calc(100% - 2rem);
   margin: 0 auto;
 }
 

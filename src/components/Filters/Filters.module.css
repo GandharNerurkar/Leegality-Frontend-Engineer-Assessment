@@ -1,12 +1,11 @@
 .panel,
 .drawer {
   display: grid;
-  gap: 1.5rem;
-  padding: 1.35rem;
-  border: 1px solid rgba(23, 32, 51, 0.08);
-  border-radius: var(--radius-xl);
-  background: rgba(255, 255, 255, 0.85);
-  box-shadow: var(--shadow-soft);
+  gap: 1.25rem;
+  padding: 1rem;
+  border-right: 1px solid #eaeded;
+  background: #ffffff;
+  box-shadow: none;
 }
 
 .header {
@@ -16,18 +15,13 @@
   justify-content: space-between;
 }
 
-.eyebrow {
-  margin: 0 0 0.2rem;
-  color: var(--primary-dark);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
 .header h2,
 .group h3 {
   margin: 0;
+}
+
+.header h2 {
+  font-size: 1.4rem;
 }
 
 .headerActions {
@@ -37,18 +31,20 @@
 
 .resetButton,
 .closeButton {
-  border: 0;
-  border-radius: 999px;
-  background: var(--primary-soft);
-  color: #8a5200;
-  font-size: 0.9rem;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  background: #f7fafa;
+  color: #0f1111;
+  font-size: 0.88rem;
   font-weight: 700;
-  padding: 0.65rem 0.9rem;
+  padding: 0.55rem 0.8rem;
 }
 
 .group {
   display: grid;
   gap: 0.85rem;
+  padding-top: 0.1rem;
+  border-top: 1px solid #f1f3f3;
 }
 
 .brandList {
@@ -59,15 +55,24 @@
   padding-right: 0.35rem;
 }
 
+.categoryList {
+  display: grid;
+  gap: 0.7rem;
+  max-height: 220px;
+  overflow: auto;
+  padding-right: 0.35rem;
+}
+
 .option {
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  color: var(--muted);
+  color: #0f1111;
+  font-size: 0.92rem;
 }
 
 .option input {
-  accent-color: var(--primary-dark);
+  accent-color: #3b82f6;
 }
 
 .priceInputs {
@@ -82,15 +87,15 @@
 }
 
 .priceInputs span {
-  color: var(--muted);
-  font-size: 0.9rem;
+  color: #565959;
+  font-size: 0.84rem;
 }
 
 .priceInputs input {
   width: 100%;
-  padding: 0.8rem 0.9rem;
-  border: 1px solid rgba(23, 32, 51, 0.12);
-  border-radius: 0.9rem;
+  padding: 0.62rem 0.72rem;
+  border: 1px solid #d5d9d9;
+  border-radius: 6px;
   background: #fff;
 }
 
@@ -109,6 +114,7 @@
   width: min(88vw, 22rem);
   height: 100vh;
   border-radius: 0;
+  border-right: 0;
   transform: translateX(100%);
   transition: transform 220ms ease;
   overflow: auto;

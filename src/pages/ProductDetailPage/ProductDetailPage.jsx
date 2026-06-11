@@ -76,57 +76,47 @@ function ProductDetailPage() {
               </div>
 
               <div className={styles.content}>
-                <p className={styles.category}>{selectedProduct.category}</p>
                 <h1 className={styles.title}>{selectedProduct.title}</h1>
                 <div className={styles.ratingRow}>
+                  <p className={styles.price}>
+                    ${selectedProduct.price.toFixed(2)}
+                  </p>
                   <Rating rating={selectedProduct.rating} />
-                  <span className={styles.stock}>
-                    {selectedProduct.stock > 0 ? 'In stock' : 'Out of stock'}
-                  </span>
                 </div>
-                <p className={styles.price}>
-                  ${selectedProduct.price.toFixed(2)}
-                </p>
-                <p className={styles.description}>
-                  {selectedProduct.description}
-                </p>
 
-                <dl className={styles.metaGrid}>
-                  <div>
-                    <dt>Brand</dt>
-                    <dd>{selectedProduct.brand || 'N/A'}</dd>
-                  </div>
-                  <div>
-                    <dt>Category</dt>
-                    <dd>{selectedProduct.category}</dd>
-                  </div>
-                  <div>
-                    <dt>Stock</dt>
-                    <dd>{selectedProduct.stock}</dd>
-                  </div>
-                  <div>
-                    <dt>Discount</dt>
-                    <dd>{selectedProduct.discountPercentage}%</dd>
-                  </div>
-                </dl>
+                <div className={styles.metaBlock}>
+                  <p><strong>Brand:</strong> {selectedProduct.brand || 'N/A'}</p>
+                  <p><strong>Category:</strong> {selectedProduct.category}</p>
+                  <p><strong>Stock:</strong> {selectedProduct.stock}</p>
+                  <p><strong>Discount:</strong> {selectedProduct.discountPercentage}%</p>
+                </div>
+
+                <section className={styles.infoSection}>
+                  <h2>Description</h2>
+                  <p className={styles.description}>
+                    {selectedProduct.description}
+                  </p>
+                </section>
+
+                {selectedProduct.reviews?.length ? (
+                  <section className={styles.infoSection}>
+                    <h2>Reviews</h2>
+                    <div className={styles.reviewList}>
+                      {selectedProduct.reviews.slice(0, 2).map((review) => (
+                        <article className={styles.reviewCard} key={`${review.reviewerEmail}-${review.date}`}>
+                          <div className={styles.reviewHeader}>
+                            <h3>{review.reviewerName}</h3>
+                            <Rating rating={review.rating} />
+                          </div>
+                          <p>{review.comment}</p>
+                        </article>
+                      ))}
+                    </div>
+                  </section>
+                ) : null}
               </div>
             </section>
 
-            {selectedProduct.images?.length ? (
-              <section className={styles.gallerySection}>
-                <h2 className={styles.galleryTitle}>Product gallery</h2>
-                <div className={styles.gallery}>
-                  {selectedProduct.images.map((image, index) => (
-                    <img
-                      alt={`${selectedProduct.title} view ${index + 1}`}
-                      className={styles.galleryImage}
-                      key={image}
-                      src={image}
-                    />
-                  ))}
-                </div>
-              </section>
-            ) : null}
           </article>
         )}
       </main>

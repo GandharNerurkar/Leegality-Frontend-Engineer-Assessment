@@ -31,13 +31,12 @@ function ProductCard({ product }) {
       </div>
 
       <div className={styles.content}>
-        <p className={styles.brand}>{product.brand || 'Independent'}</p>
         <h3 className={styles.title}>{product.title}</h3>
-        <Rating rating={product.rating} />
-        <div className={styles.footer}>
+        <div className={styles.metaRow}>
           <p className={styles.price}>${product.price.toFixed(2)}</p>
-          <span className={styles.category}>{product.category}</span>
+          <Rating rating={product.rating} />
         </div>
+        <p className={styles.brand}>{product.brand || product.category}</p>
       </div>
     </Link>
   );
