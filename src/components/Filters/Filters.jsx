@@ -78,7 +78,7 @@ function Filters({
                 checked={filters.selectedCategory === ''}
                 name={categoryInputName}
                 onChange={() => onCategoryChange('')}
-                type="radio"
+                type="checkbox"
               />
               <span>All categories</span>
             </label>
@@ -88,7 +88,7 @@ function Filters({
                   checked={filters.selectedCategory === category.slug}
                   name={categoryInputName}
                   onChange={() => onCategoryChange(category.slug)}
-                  type="radio"
+                  type="checkbox"
                 />
                 <span>{category.name}</span>
               </label>
